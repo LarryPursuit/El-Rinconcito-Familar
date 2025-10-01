@@ -517,3 +517,142 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Morphing Modal Animator */
+.modal-animator {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 50%;
+  z-index: 2001;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Image Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 2002;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.2s;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: var(--text-light);
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2003;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close-modal:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.modal-image-container {
+  width: 100%;
+  max-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.modal-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Modal card enhanced styling */
+.modal-card {
+  background: var(--bg-white);
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(184, 134, 11, 0.2);
+  border: 2px solid var(--border-color);
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  transform: translateY(10px);
+  transition: transform 0.4s ease 0.1s;
+}
+
+.modal-card h3 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-family: "Times New Roman", serif;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.modal-card p {
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: "Times New Roman", serif;
+}
+
+/* Carousel image hover effect */
+.carousel-item img {
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Modal responsive design */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 5% auto;
+  }
+
+  .modal-card {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .modal-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .modal-card p {
+    font-size: 1rem;
+  }
+
+  .close-modal {
+    top: -35px;
+    font-size: 2rem;
+  }
+}
